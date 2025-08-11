@@ -1,1 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import "tailwindcss";
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.grid-seventy-thirty {
+  display: grid;
+  grid-template-columns: 70% 28%;
+}
+
+@media (max-width: 767px) {
+  .grid-seventy-thirty {
+    grid-template-columns: 1fr;
+  }
+}
