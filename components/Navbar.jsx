@@ -125,7 +125,7 @@ const Navbar = () => {
               <Link href="/messages" className="relative group">
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="cursor-pointer relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5"></span>
                   <span className="sr-only">View notifications</span>
@@ -154,7 +154,7 @@ const Navbar = () => {
                 <div>
                   <button
                     type="button"
-                    className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="cursor-pointer relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     id="user-menu-button"
                     aria-expanded="false"
                     aria-haspopup="true"
@@ -188,6 +188,9 @@ const Navbar = () => {
                       role="menuitem"
                       tabIndex="-1"
                       id="user-menu-item-0"
+                      onClick={() => {
+                        setIsProfileMenuOpen(false);
+                      }}
                     >
                       Your Profile
                     </Link>
@@ -197,11 +200,18 @@ const Navbar = () => {
                       role="menuitem"
                       tabIndex="-1"
                       id="user-menu-item-2"
+                      onClick={() => {
+                        setIsProfileMenuOpen(false);
+                      }}
                     >
                       Saved Properties
                     </Link>
                     <button
-                      className="block px-4 py-2 text-sm text-gray-700"
+                      onClick={() => {
+                        setIsProfileMenuOpen(false);
+                        signOut();
+                      }}
+                      className="cursor-pointer block px-4 py-2 text-sm text-gray-700"
                       role="menuitem"
                       tabIndex="-1"
                       id="user-menu-item-2"
