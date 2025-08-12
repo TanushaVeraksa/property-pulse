@@ -82,7 +82,7 @@ const PropertyPage = () => {
                           Name:
                         </label>
                         <input
-                          className="shadow shadow-gray-500/50 appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          className="shadow border border-gray-200 appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           id="name"
                           name="name"
                           type="text"
@@ -98,7 +98,7 @@ const PropertyPage = () => {
                           Email:
                         </label>
                         <input
-                          className="shadow shadow-gray-500/50 appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          className="shadow border border-gray-200 appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           id="email"
                           name="email"
                           type="email"
@@ -114,7 +114,7 @@ const PropertyPage = () => {
                           Phone:
                         </label>
                         <input
-                          className="shadow shadow-gray-500/50 appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          className="shadow border border-gray-200 appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           id="phone"
                           name="phone"
                           type="text"
@@ -129,7 +129,7 @@ const PropertyPage = () => {
                           Message:
                         </label>
                         <textarea
-                          className="shadow shadow-gray-500/50 appearance-none rounded w-full py-2 px-3 text-gray-700 h-44 focus:outline-none focus:shadow-outline"
+                          className="shadow border border-gray-200 appearance-none rounded w-full py-2 px-3 text-gray-700 h-44 focus:outline-none focus:shadow-outline"
                           id="message"
                           name="message"
                           placeholder="Enter your message"
