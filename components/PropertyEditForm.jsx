@@ -109,7 +109,28 @@ const PropertyEditForm = () => {
     }));
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData(e.target);
+      const res = await fetch(`/api/properties/${id}`, {
+        method: "PUT",
+        body: formData,
+      });
+
+      if (res.status === 200) {
+        router.push(`/properties/${id}`);
+      } else if (res.status === 401 || res.status === 403) {
+        toast.error("Permission denied");
+      } else {
+        toast.error("Something went wrong");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
 
   return (
     mounted &&
@@ -566,7 +587,7 @@ const PropertyEditForm = () => {
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
             type="submit"
           >
-            Add Property
+            Edit Property
           </button>
         </div>
       </form>
