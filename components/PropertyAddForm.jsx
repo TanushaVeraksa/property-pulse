@@ -4,31 +4,30 @@ import { useState, useEffect } from "react";
 const PropertyAddForm = () => {
   const [mounted, setMounted] = useState(false);
   const [fields, setFields] = useState({
-    name: "Test",
-    type: "Test",
+    name: "",
+    type: "",
     description: "",
     location: {
-      street: "Test",
-      city: "Test",
-      state: "MA",
-      zipcode: "02108",
+      street: "",
+      city: "",
+      state: "",
+      zipcode: "",
     },
-    beds: 2,
-    baths: 1,
-    square_feet: 1500,
+    beds: "",
+    baths: "",
+    square_feet: "",
     amenities: [],
     rates: {
-      weekly: 1100,
-      monthly: 4200,
-      nightly: 100,
+      weekly: "",
+      monthly: "",
+      nightly: "",
     },
     seller_info: {
-      name: "John Doe",
-      email: "john@gmail.com",
-      phone: "617-555-5555",
+      name: "",
+      email: "",
+      phone: "",
     },
     images: [],
-    is_featured: false,
   });
 
   useEffect(() => {
@@ -108,7 +107,7 @@ const PropertyAddForm = () => {
           <select
             id="type"
             name="type"
-            className="border border-gray-200 border border-gray-200-gray-200 rounded w-full py-2 px-3"
+            className="border border-gray-200 border rounded w-full py-2 px-3"
             required
             value={fields.type}
             onChange={handleChange}
