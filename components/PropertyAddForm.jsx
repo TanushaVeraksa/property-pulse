@@ -129,7 +129,7 @@ const PropertyAddForm = () => {
             type="text"
             id="name"
             name="name"
-            className="border border-gray-200 border border-gray-200-gray-200 rounded w-full py-2 px-3 mb-2"
+            className="border border-gray-200 border rounded w-full py-2 px-3 mb-2"
             placeholder="eg. Beautiful Apartment In Miami"
             required
             value={fields.name}
@@ -146,7 +146,7 @@ const PropertyAddForm = () => {
           <textarea
             id="description"
             name="description"
-            className="border border-gray-200 border border-gray-200-gray-200 rounded w-full py-2 px-3"
+            className="border border-gray-200 border rounded w-full py-2 px-3"
             rows="4"
             placeholder="Add an optional description of your property"
             value={fields.description}
@@ -160,7 +160,7 @@ const PropertyAddForm = () => {
             type="text"
             id="street"
             name="location.street"
-            className="border bg-white border-gray-200 border border-gray-200-gray-200 rounded w-full py-2 px-3 mb-2"
+            className="border bg-white border-gray-200 border rounded w-full py-2 px-3 mb-2"
             placeholder="Street"
             value={fields.location.street}
             onChange={handleChange}
@@ -169,7 +169,7 @@ const PropertyAddForm = () => {
             type="text"
             id="city"
             name="location.city"
-            className="border bg-white border-gray-200 border border-gray-200-gray-200 rounded w-full py-2 px-3 mb-2"
+            className="border bg-white border-gray-200 border rounded w-full py-2 px-3 mb-2"
             placeholder="City"
             required
             value={fields.location.city}

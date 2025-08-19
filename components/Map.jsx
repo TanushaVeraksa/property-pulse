@@ -1,46 +1,59 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { MapContainer, TileLayer, Marker, LayersControl } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { MdLocationOff } from "react-icons/md";
 import Spinner from "@/components/Spinner";
-import pin from "@/assets/images/pin.svg";
 
 const Map = ({ location }) => {
   const { street, city, state } = location;
   const [coords, setCoords] = useState(null);
-  const [customIcon, setCustomIcon] = useState(null);
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const customIcon = useMemo(() => {
     const L = require("leaflet");
-    setCustomIcon(
-      new L.Icon({
-        iconUrl: "/images/icons/marker-icon-blue.png",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-      })
-    );
+    return new L.Icon({
+      iconUrl: "/images/icons/marker-icon-blue.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+    });
+  }, []);
+
+  useEffect(() => {
+    setLoading(true);
 
     const fetchCoords = async () => {
       const fullAddress = `${street}, ${city}, ${state}`;
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(
-          fullAddress
-        )}`
-      );
+      try {
+        const res = await fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(
+            fullAddress
+          )}`
+        );
 
-      const data = await res.json();
+        const data = await res.json();
 
-      const { lat, lon } = data[0];
+        const { lat, lon } = data[0];
 
-      if (data.length > 0) setCoords([parseFloat(lat), parseFloat(lon)]);
-      setLoading(false);
+        if (data.length > 0) {
+          setCoords([parseFloat(lat), parseFloat(lon)]);
+        } else {
+          setError(true);
+        }
+      } catch (error) {
+        console.error(error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchCoords();
-  }, []);
+  }, [street, city, state]);
 
-  if (!loading && (!coords || !customIcon))
+  if (loading) return <Spinner loading={loading} />;
+
+  if (error || !coords)
     return (
       <div className="flex flex-col items-center justify-center h-96 bg-gray-50 rounded-2xl shadow-sm">
         <MdLocationOff className="w-12 h-12 text-gray-400 mb-3" />
@@ -51,15 +64,13 @@ const Map = ({ location }) => {
       </div>
     );
 
-  if (loading) return <Spinner loading={loading} />;
-
   return (
     !loading && (
       <MapContainer
         center={coords}
         zoom={13}
         minZoom={2}
-        maxZoom={18}
+        maxZoom={19}
         style={{ width: "100%", height: 500 }}
       >
         <LayersControl position="topright">
