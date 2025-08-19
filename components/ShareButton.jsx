@@ -1,13 +1,10 @@
-import { FaShare } from "react-icons/fa";
 import {
   FacebookShareButton,
   TelegramShareButton,
-  ViberShareButton,
   EmailShareButton,
   WhatsappShareButton,
   FacebookIcon,
   TelegramIcon,
-  ViberIcon,
   EmailIcon,
   WhatsappIcon,
 } from "react-share";
