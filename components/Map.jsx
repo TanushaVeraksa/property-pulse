@@ -34,9 +34,8 @@ const Map = ({ location }) => {
 
         const data = await res.json();
 
-        const { lat, lon } = data[0];
-
         if (data.length > 0) {
+          const { lat, lon } = data[0];
           setCoords([parseFloat(lat), parseFloat(lon)]);
         } else {
           setError(true);
