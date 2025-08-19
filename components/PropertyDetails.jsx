@@ -7,6 +7,10 @@ import {
   FaMapMarker,
 } from "react-icons/fa";
 
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("./Map"), { ssr: false });
+
 const PropertyDetails = ({ property }) => {
   return (
     <main>
@@ -91,7 +95,7 @@ const PropertyDetails = ({ property }) => {
       </div>
       {/* <!-- Map --> */}
       <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-        <div id="map"></div>
+        <Map location={property.location} />
       </div>
     </main>
   );
