@@ -14,7 +14,7 @@ const PropertySearchForm = () => {
       router.push("/properties");
     } else {
       const query = `?location=${location}&propertyType=${propertyType}`;
-      router.push(`/properties/search-result${query}`);
+      router.push(`/properties/search-results${query}`);
     }
   };
 
