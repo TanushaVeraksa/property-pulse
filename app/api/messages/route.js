@@ -15,7 +15,7 @@ export const POST = async (reques) => {
 
     if (!sessionUser || !sessionUser.user) {
       return new Response(
-        { message: "You must be logged in to sent a message" },
+        JSON.stringify({ message: "You must be logged in to sent a message" }),
         { status: 401 }
       );
     }
