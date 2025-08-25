@@ -1,4 +1,4 @@
-const apiDomain = process.env.NEXT_PUBLIC_DOMAIN || null;
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
 // Fetch All properties
 
@@ -10,7 +10,7 @@ async function fetchProperties({ showFeatured = false } = {}) {
       return [];
     }
     const res = await fetch(
-      `${apiDomain}/api/properties${showFeatured ? "/featured" : ""}`,
+      `${apiDomain}/properties${showFeatured ? "/featured" : ""}`,
       { cache: "no-store" }
     );
 
@@ -33,7 +33,7 @@ async function fetchProperty(id) {
     if (!apiDomain) {
       return null;
     }
-    const res = await fetch(`${apiDomain}/api/properties/${id}`);
+    const res = await fetch(`${apiDomain}/properties/${id}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");
