@@ -32,7 +32,13 @@ export const GET = async (request) => {
       .populate("property", "name");
 
     const messages = [...unreadMessages, ...readMessages];
-    return new Response(JSON.stringify(messages), { status: 200 });
+    return new Response(JSON.stringify(messages), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
   } catch (error) {
     console.log(error);
     return new Response("Something went wrong", { status: 500 });
@@ -76,7 +82,16 @@ export const POST = async (request) => {
     await newMessage.save();
     console.log(newMessage);
     return new Response(
-      JSON.stringify({ message: "Message Sent" }, { status: 200 })
+      JSON.stringify(
+        { message: "Message Sent" },
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
     );
   } catch (error) {
     console.log(error);

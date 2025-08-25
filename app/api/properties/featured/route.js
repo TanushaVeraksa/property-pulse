@@ -12,6 +12,10 @@ export const GET = async (request) => {
 
     return new Response(JSON.stringify(properties), {
       status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
   } catch (error) {
     return new Response("Something Went Wrong", {

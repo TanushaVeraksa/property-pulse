@@ -16,6 +16,10 @@ export const GET = async (request, { params }) => {
 
     return new Response(JSON.stringify(property), {
       status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
   } catch (error) {
     return new Response("Something Went Wrong", {
@@ -56,6 +60,10 @@ export const DELETE = async (request, { params }) => {
 
     return new Response("Property Deleted", {
       status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
   } catch (error) {
     return new Response("Something Went Wrong", {
@@ -129,6 +137,10 @@ export const PUT = async (request, { params }) => {
 
     return new Response(JSON.stringify(updatedProperty), {
       status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
   } catch (error) {
     return new Response("Failed to add property", { status: 500 });

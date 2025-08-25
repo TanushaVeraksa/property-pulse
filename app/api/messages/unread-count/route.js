@@ -25,6 +25,10 @@ export const GET = async () => {
 
     return new Response(JSON.stringify(count), {
       status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
   } catch (error) {
     console.log(error);
