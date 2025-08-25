@@ -1,4 +1,4 @@
-const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
+const apiDomain = process.env.NEXT_PUBLIC_DOMAIN || null;
 
 // Fetch All properties
 
@@ -10,7 +10,7 @@ async function fetchProperties({ showFeatured = false } = {}) {
       return [];
     }
     const res = await fetch(
-      `${apiDomain}/properties${showFeatured ? "/featured" : ""}`,
+      `${apiDomain}/api/properties${showFeatured ? "/featured" : ""}`,
       { cache: "no-store" }
     );
 

@@ -4,6 +4,8 @@ import HomeProperties from "@/components/HomeProperties";
 import connectDB from "@/config/database";
 import FeaturedProperties from "@/components/FeaturedProperties";
 
+export const dynamic = "force-dynamic";
+
 const HomePage = async () => {
   await connectDB();
   return (
@@ -11,7 +13,6 @@ const HomePage = async () => {
       <Hero />
       <InfoBoxes />
       <FeaturedProperties />
-
       <HomeProperties />
     </>
   );
